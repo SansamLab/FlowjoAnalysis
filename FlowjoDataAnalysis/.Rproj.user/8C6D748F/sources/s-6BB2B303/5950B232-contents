@@ -1,0 +1,119 @@
+---
+title: "getFlowjoWspData"
+author: "Kevin Boyd"
+date: "1/14/2022"
+output: html_document
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(shiny)
+
+# Define UI for data upload app ----
+ui <- fluidPage(
+
+  # App title ----
+  titlePanel("getFlowjoWspData"),
+
+  # Sidebar layout with input and output definitions ----
+  sidebarLayout(
+
+    # Sidebar panel for inputs ----
+    sidebarPanel(
+
+      # Input: Select a file ----
+      fileInput("file1", "Choose WSP File",
+                multiple = FALSE,
+                accept = c(".wsp",
+                         ".xml")),
+
+      fileInput("file2", "Choose .fcs File",
+                multiple = TRUE,
+                accept = ".fcs"),
+      
+      # Horizontal line ----
+      tags$hr(),
+
+      # Horizontal line ----
+      tags$hr(),
+
+    ),
+
+    # Main panel for displaying outputs ----
+    mainPanel(
+
+      # Output: Data file ----
+      plotOutput("gatePlot")
+
+    )
+  )
+)
+
+# Define server logic to read selected file ----
+server <- function(input, output) {
+
+  output$contents <- renderTable({
+
+    # input$file1 will be NULL initially. After the user selects
+    # and uploads a file, head of that data file by default,
+    # or all rows if selected, will be shown.
+
+    req(input$file1)
+
+    # when reading semicolon separated files,
+    # having a comma separator causes `read.csv` to error
+    tryCatch(
+      {
+        df <- CytoML::open_flowjo_xml(input$file1$datapath)
+      },
+      error = function(e) {
+        # return a safeError if a parsing error occurs
+        stop(safeError(e))
+      }
+    )
+  })
+
+    output$contents <- renderTable({
+
+    # input$file1 will be NULL initially. After the user selects
+    # and uploads a file, head of that data file by default,
+    # or all rows if selected, will be shown.
+
+    req(input$file2)
+
+    # when reading semicolon separated files,
+    # having a comma separator causes `read.csv` to error
+    tryCatch(
+      {
+        myfiles <- list.files(path=fcsPath, pattern=fcsPattern)
+        fs <- flowCore::read.flowSet(myfiles, path=fcsPath)
+      },
+      error = function(e) {
+        # return a safeError if a parsing error occurs
+        stop(safeError(e))
+      }
+    )
+  })
+    output$gatePlot <- renderPlot({
+      
+      req(input$file1,input$file2)
+      
+      tryCatch(
+        {
+      # generate bins based on input$bins from ui.R
+      gs <- CytoML::flowjo_to_gatingset(file1, name= 2)
+      plot(gs)
+        }
+      )
+   })
+}
+
+# Create Shiny app ----
+shinyApp(ui, server)
+```
+
+
