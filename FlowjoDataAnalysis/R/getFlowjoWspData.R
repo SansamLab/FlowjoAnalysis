@@ -18,11 +18,8 @@ getFlowjoWspData <-  function(wspFilename="04-Oct-2021.wsp",
   {
   # load workspace
   data <- CytoML::open_flowjo_xml(wspFilename)
-  # load .fcs files
-  myfiles <- list.files(path=fcsPath, pattern=fcsPattern)
-  fs <- flowCore::read.flowSet(myfiles, path=fcsPath)
   # parse workspace and fcs files
-  gs <- CytoML::flowjo_to_gatingset(data, name = 2)
+  gs <- CytoML::flowjo_to_gatingset(data, name = 1)
   # put data
   df3 <- flowWorkspace::gs_get_singlecell_expression_by_gate(x=gs, nodes=nodes, other.markers=markers, threshold = FALSE)
   names(df3) <- gsub("\\..*","",names(df3))
@@ -33,6 +30,6 @@ getFlowjoWspData <-  function(wspFilename="04-Oct-2021.wsp",
     df <- df[,-c(1,2)]
     return(df)
   })
-  names(df3) <- gsub("\\..*","",names(df3))
-  return(df3)
+  names(df3names) <- gsub("\\..*","",names(df3))
+  return(df3names)
 }
