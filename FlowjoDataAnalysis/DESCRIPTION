@@ -1,7 +1,7 @@
 Package: FlowjoDataAnalysis
 Type: Package
 Title: What the Package Does (Title Case)
-Version: 0.1.1
+Version: 0.1.2
 Author: Kevin Boyd
 Maintainer: The package maintainer <kevin-boyd@omrf.org>
 Description: More about what it does (maybe more than one line)

@@ -11,8 +11,6 @@
 #' @export
 
 getFlowjoWspData <-  function(wspFilename="04-Oct-2021.wsp",
-         fcsPath=".",
-         fcsPattern=".fcs",
          nodes="Cells",
          markers=c("FSC-A","SSC-A","FL1-A"))
   {

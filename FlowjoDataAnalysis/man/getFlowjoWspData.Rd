@@ -6,8 +6,6 @@
 \usage{
 getFlowjoWspData(
   wspFilename = "04-Oct-2021.wsp",
-  fcsPath = ".",
-  fcsPattern = ".fcs",
   nodes = "Cells",
   markers = c("FSC-A", "SSC-A", "FL1-A")
 )
@@ -15,13 +13,13 @@ getFlowjoWspData(
 \arguments{
 \item{wspFilename}{wsp file that includes gating setting and other data from flowjo}
 
-\item{fcsPath}{fcs path should be the directory where all the fcs files are saved}
-
-\item{fcsPattern}{the fcs pattern will be .fcs and is used to load in the .fcs data}
-
 \item{nodes}{nodes specifies the gate being used for the analysis}
 
 \item{markers}{marker specifies the columns of data you want back. Ex: FSC-A, SSC-A, FL1-A}
+
+\item{fcsPath}{fcs path should be the directory where all the fcs files are saved}
+
+\item{fcsPattern}{the fcs pattern will be .fcs and is used to load in the .fcs data}
 }
 \value{
 A list of data frames with all the data specific to each gate. Each item in the list is a different samlpe and each data frame has the raw data.
