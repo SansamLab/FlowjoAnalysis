@@ -7,7 +7,7 @@ Package to help utilize R in Flowjo data analysis.
 3. Make sure you have renv library installed - install.packages("renv")
 4. load library revn - library(revn)
 5. Then initialize the package - renv::init()
-6. Once all the packages are downloaded from the renv.lock file, install the newest version of the package \ (Ex: FlowjoDataAnalysis_0.1.2.tar.gz)
+6. Once all the packages are downloaded from the renv.lock file, install the newest version of the package (Ex: FlowjoDataAnalysis_0.1.2.tar.gz)
 7. Open the new package - library(FlowjoDataAnalysis)
 8. Run on your data
 9. Output is a list of samples in dataframes with all values associated with that gate and measuement
