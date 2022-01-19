@@ -1,7 +1,7 @@
 # FlowjoAnalysis Package
 
 ## Load Specific Package Versions
-## [renv] (https://rstudio.github.io/renv/articles/renv.html)
+[renv] https://rstudio.github.io/renv/articles/renv.html
 This documentation shows how to use the package renv in order to load specific versions of packages.
 
 # Load package on local drive
