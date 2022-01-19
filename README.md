@@ -5,7 +5,7 @@ Package to help utilize R in Flowjo data analysis.
 1. Copy repository URL from github into your local github desktop
 2. Open the rproj file
 3. Make sure you have renv library installed - install.packages("renv")
-4. load library revn - library(revn)
+4. load library renv - library(renv)
 5. Then initialize the package - renv::init()
 6. Once all the packages are downloaded from the renv.lock file, install the newest version of the package (Ex: FlowjoDataAnalysis_0.1.2.tar.gz)
 7. Open the new package - library(FlowjoDataAnalysis)
