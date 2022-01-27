@@ -16,14 +16,10 @@ getFlowjoWspData(
 \item{nodes}{nodes specifies the gate being used for the analysis}
 
 \item{markers}{marker specifies the columns of data you want back. Ex: FSC-A, SSC-A, FL1-A}
-
-\item{fcsPath}{fcs path should be the directory where all the fcs files are saved}
-
-\item{fcsPattern}{the fcs pattern will be .fcs and is used to load in the .fcs data}
 }
 \value{
-A list of data frames with all the data specific to each gate. Each item in the list is a different samlpe and each data frame has the raw data.
+A list of data frames with all the data specific to each gate you specify. Each item in the list is a different sample and each data frame has the raw data.
 }
 \description{
-Given a flowjo workspace and a list of .fcs files this code will generate a list of dataframes and specific gates can be specified.
+Given a flowjo workspace that is in the same directory as the .fcs files, this code will generate a list of dataframes for the specific gates that are specified.
 }
