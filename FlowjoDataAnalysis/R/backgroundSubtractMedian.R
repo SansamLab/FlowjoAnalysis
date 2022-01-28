@@ -1,16 +1,16 @@
-#' Pull out specific data from flowjo workspace
+#' Background subtract the median control from y-axis column
 #'
-#' Given a flowjo workspace and a list of .fcs files this code will generate a list of dataframes and specific gates can be specified.
+#' Given a parsed flowjo workspace and a colData file, this function will background subtract the median value of the control from the treated samples.
 #'
 #' @param colData a file that contains all your sample names and all associate labels
 #' @param ChannelValueList this is the parsed workspace with gate info. This is essentially the output from getFlowjoWspData function
-#' @return A list of data frames with all the data specific to each gate. Each item in the list is a different samlpe and each data frame has the raw data.
+#' @return A data frame with a column with background subtracted values. This output can be plotted with ggplot2
 #' @export
 
 
 # background subtract function
-BackgroundSubtract <- function(colData = colData,
-                               ChannelValueList = insolubleG1){
+BackgroundSubtract <- function(colData = "colData",
+                               ChannelValueList = "ChannelValueList"){
   colDataList <- split(coldata,f=coldata$Treated)
   tst <- lapply(colDataList,function(colDataSubset){
     # subset channel value list to get the control numbers

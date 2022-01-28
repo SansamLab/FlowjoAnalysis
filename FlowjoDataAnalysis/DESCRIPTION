@@ -1,10 +1,10 @@
 Package: FlowjoDataAnalysis
 Type: Package
 Title: What the Package Does (Title Case)
-Version: 0.1.4
+Version: 0.1.6
 Author: Kevin Boyd
 Maintainer: The package maintainer <kevin-boyd@omrf.org>
-Description: More about what it does (maybe more than one line)
+Description: This package is for loading data from flowjo into R.
     Use four spaces when indenting paragraphs within the Description.
 License: What license is it under?
 Encoding: UTF-8

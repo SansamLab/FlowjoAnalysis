@@ -1,7 +1,7 @@
 {
     "installOptions": {
         "installFromRepository": false,
-        "libraryPath": "/Users/boydk/Library/R/x86_64/4.1/library",
+        "libraryPath": "/Users/boydk/Library/Caches/org.R-project.R/R/renv/library/FlowjoDataAnalysis-6ed09c63/R-4.1/x86_64-apple-darwin17.0",
         "installDependencies": true
     }
 }
