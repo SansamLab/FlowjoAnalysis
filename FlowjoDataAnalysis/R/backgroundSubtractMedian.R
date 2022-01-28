@@ -9,9 +9,9 @@
 
 
 # background subtract function
-BackgroundSubtract <- function(colData = "colData",
+BackgroundSubtractMedian <- function(colData = "colData",
                                ChannelValueList = "ChannelValueList"){
-  colDataList <- split(coldata,f=coldata$Treated)
+  colDataList <- split(colData,f=colData$Treated)
   tst <- lapply(colDataList,function(colDataSubset){
     # subset channel value list to get the control numbers
     controlNumbers <- ChannelValueList[[colDataSubset$Control]]
